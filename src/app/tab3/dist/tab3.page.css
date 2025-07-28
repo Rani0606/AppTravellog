@@ -1,0 +1,38 @@
+.video-background {
+  --background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-background #bgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-background .riwayat-overlay {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(3px);
+}
+
+.video-background ion-item {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  --background: #f1f8e9;
+}
+
+.video-background ion-text {
+  font-style: italic;
+}
+
+/*# sourceMappingURL=tab3.page.css.map */

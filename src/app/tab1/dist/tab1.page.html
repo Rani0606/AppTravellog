@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>TravelLog</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding video-background">
+
+  <!-- Video background (bisa diganti gambar alam juga jika ingin) -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="assets/alam.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Konten utama -->
+  <div class="content-overlay">
+
+    <!-- Header -->
+    <h2>Selamat Datang di Aplikasi TravelLog!</h2>
+    <p>Catat perjalanan seru Anda dengan mudah.</p>
+
+    <!-- Tombol -->
+    <ion-button expand="block" (click)="goToInput()">
+      + Catat Perjalanan Baru
+    </ion-button>
+
+    <!-- Statistik -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Statistik Perjalanan</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Total Perjalanan:</strong> {{ riwayat.length }}</p>
+        <p><strong>Jenis Favorit:</strong> {{ jenisFavorit || 'Belum ada' }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Riwayat terakhir -->
+    <ion-list *ngIf="riwayat.length > 0">
+      <ion-list-header>
+        Riwayat Perjalanan Terakhir
+      </ion-list-header>
+
+      <ion-item *ngFor="let item of riwayat.slice(0, 3)" (click)="goToInput(item)">
+        <ion-label>
+          <h3>{{ item.lokasi }}</h3>
+          <p>{{ item.tanggal }} - {{ item.jenis_perjalanan }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-note *ngIf="riwayat.length === 0">
+      Belum ada catatan perjalanan.
+    </ion-note>
+
+    <!-- Kutipan -->
+    <ion-card color="light">
+      <ion-card-content>
+        <ion-text color="dark">
+          <p><em>"Jangan hanya duduk, jelajahi dunia dan ceritakan kisahmu."</em></p>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Riwayat Perjalanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding video-background">
+
+  <!-- Video Latar Belakang -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="assets/alam.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay Konten Riwayat -->
+  <div class="riwayat-overlay">
+    <ion-list *ngIf="riwayat.length > 0; else kosong">
+      <ion-item *ngFor="let item of riwayat">
+        <ion-label>
+          <h3>{{ item.tanggal }} - {{ item.lokasi }}</h3>
+          <p><strong>Jenis:</strong> {{ item.jenis_perjalanan }}</p>
+          <p><strong>Teman:</strong> {{ item.teman_perjalanan }}</p>
+          <p><strong>Aktivitas:</strong> {{ item.aktivitas }}</p>
+          <p><strong>Cuaca:</strong> {{ item.cuaca }}</p>
+          <p><strong>Catatan:</strong> {{ item.catatan }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #kosong>
+      <ion-text color="light">
+        <p class="ion-text-center">Belum ada data perjalanan.</p>
+      </ion-text>
+    </ng-template>
+  </div>
+
+</ion-content>

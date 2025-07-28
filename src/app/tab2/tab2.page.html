@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Catat Perjalanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding video-background">
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="assets/alam.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Form di atas background -->
+  <div class="form-overlay">
+    <form (ngSubmit)="submitForm()">
+
+      <!-- Tanggal -->
+      <ion-item>
+        <ion-label position="floating">Tanggal</ion-label>
+        <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="form.tanggal" name="tanggal" required></ion-datetime>
+      </ion-item>
+
+      <!-- Lokasi -->
+      <ion-item>
+        <ion-label position="floating">Lokasi</ion-label>
+        <ion-input [(ngModel)]="form.lokasi" name="lokasi" required></ion-input>
+      </ion-item>
+
+      <!-- Jenis Perjalanan -->
+      <ion-item>
+        <ion-label position="floating">Jenis Perjalanan</ion-label>
+        <ion-input [(ngModel)]="form.jenis_perjalanan" name="jenis_perjalanan"></ion-input>
+      </ion-item>
+
+      <!-- Teman Perjalanan -->
+      <ion-item>
+        <ion-label position="floating">Teman Perjalanan</ion-label>
+        <ion-input [(ngModel)]="form.teman_perjalanan" name="teman_perjalanan"></ion-input>
+      </ion-item>
+
+      <!-- Aktivitas -->
+      <ion-item>
+        <ion-label position="floating">Aktivitas</ion-label>
+        <ion-textarea [(ngModel)]="form.aktivitas" name="aktivitas"></ion-textarea>
+      </ion-item>
+
+      <!-- Cuaca -->
+      <ion-item>
+        <ion-label>Cuaca</ion-label>
+        <ion-select [(ngModel)]="form.cuaca" name="cuaca" interface="popover" placeholder="Pilih Cuaca">
+          <ion-select-option value="Cerah">Cerah</ion-select-option>
+          <ion-select-option value="Berawan">Berawan</ion-select-option>
+          <ion-select-option value="Hujan">Hujan</ion-select-option>
+          <ion-select-option value="Badai">Badai</ion-select-option>
+          <ion-select-option value="Kabut">Kabut</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Catatan -->
+      <ion-item>
+        <ion-label position="floating">Catatan</ion-label>
+        <ion-textarea [(ngModel)]="form.catatan" name="catatan"></ion-textarea>
+      </ion-item>
+
+      <!-- Tombol Simpan -->
+      <ion-button expand="block" type="submit" class="ion-margin-top">Simpan</ion-button>
+    </form>
+  </div>
+</ion-content>
